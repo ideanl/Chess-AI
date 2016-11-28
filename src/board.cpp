@@ -1,5 +1,6 @@
 #include "board.h"
 #include "input.h"
+#include "constants.h"
 
 Board::Board() {
   spaces.reserve(128);
@@ -15,4 +16,13 @@ void Board::setup() {
 }
 
 std::string Board::to_string() {
+  std::string result = "";
+
+  for (ubyte row = 0; row < 8; row++) {
+    for (ubyte col = 0; col < 8; col++) {
+      ubyte square_index = row*16 + col;
+      spaces[square_index].to_string();
+    }
+    result += '\b';
+  }
 }
