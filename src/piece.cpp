@@ -1,5 +1,6 @@
 #include "piece.h"
 #include "constants.h"
+#include <sstream>
 
 Piece::Piece(char code, bool color)
   : code(code), color(color) {}
@@ -31,6 +32,12 @@ std::string Piece::to_string() {
   }
 
   if (color == BLACK) result = tolower(result);
-  std::string result_str = "" + result;
+
+  std::string result_str;
+  std::stringstream ss;
+
+  ss << result;
+
+  ss >> result_str;
   return result_str;
 }

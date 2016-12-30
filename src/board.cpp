@@ -9,6 +9,9 @@ Board::Board() {
     Square square(i % 2);
     spaces.push_back(square);
   }
+
+  pieces[0].reserve(16);
+  pieces[1].reserve(16);
 }
 
 void Board::setup() {
@@ -16,13 +19,20 @@ void Board::setup() {
 }
 
 std::string Board::to_string() {
-  std::string result = "";
+  std::string result = "\33[4m";
+  result += "                \n";
 
   for (ubyte row = 0; row < 8; row++) {
+    result += "|";
     for (ubyte col = 0; col < 8; col++) {
       ubyte square_index = row*16 + col;
-      spaces[square_index].to_string();
+      result += spaces[square_index].to_string() + "|";
     }
     result += '\b';
+    result += '\n';
   }
+
+  result += "\33[0m";
+
+  return result;
 }

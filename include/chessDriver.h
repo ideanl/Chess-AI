@@ -3,8 +3,9 @@
 
 #include "board.h"
 
-Board board;
-
-extern Board board;
+class ChessDriver {
+  public:
+    static Board board;
+};
 
 #endif

@@ -4,7 +4,7 @@ Development Stages
 ===========================================================
 
 Phase I:
-  - Prints Chess Board with pieces
+  - Prints Chess Board with pieces (DONE)
   - Shows possible moves
   - Allows human to make a move
 
